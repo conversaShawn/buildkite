@@ -4,10 +4,10 @@ env:
 steps:
   - label: "Cypress"
     command: |
-      echo "--- Node version"
-      node --version
-      echo "--- NPM version"
-      npm --version
+      # echo "--- Node version"
+      # node --version
+      # echo "--- NPM version"
+      # npm --version
       echo "--- Install NPM dependencies"
       npm install
       # if necessary, reinstall "correct" version of Cypress
