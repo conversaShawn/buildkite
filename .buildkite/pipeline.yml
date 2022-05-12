@@ -1,0 +1,22 @@
+env:
+  TERM: "xterm"
+
+steps:
+  - label: "Cypress"
+    command: |
+      echo "--- Node version"
+      node --version
+      echo "--- NPM version"
+      npm --version
+      echo "--- Install NPM dependencies"
+      npm install
+      # if necessary, reinstall "correct" version of Cypress
+      # a common situation if testing preview binary build
+      # "$(npm bin)/cypress" install --force
+      #
+      echo "--- Install custom Cypress version"
+      npm install https://cdn.cypress.io/beta/npm/10.0.0/darwin-x64/10.0-release-9ab12ecfb1f5b54db4c9947616c99ac3b0588a07/cypress.tgz
+      echo "--- Cypress version"
+      "$(npm bin)/cypress" version
+      echo "+++ Run Cypress tests"
+      cypress run --record
